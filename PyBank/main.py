@@ -1,15 +1,17 @@
 #Import csv and os
 import os
 import csv 
+from pathlib import Path
+
 
 #Create pathfile
 
-file = '/Users/sheve/Documents/GitHub/python-challenge/PyBank/Resources/budget_data.csv'
+input_file = Path('Resources','budget_data.csv')
 
 
 #Open and pull from csv file 
 
-with open(file, 'r') as csvfile:
+with open(input_file, 'r') as csvfile:
     csv_reader = csv.reader(csvfile, delimiter = ',')
     csv_header = next(csv_reader)
 
@@ -58,7 +60,7 @@ print(f'Greatest Increase in Profits: {month_inc} ({increase})')
 print(f'Greatest Decrease in Profits: {month_dec} ({decrease})')
 
 #Exporting File
-bank_analysis = '/Users/sheve/Documents/GitHub/python-challenge/PyBank/Analysis/bank_analysis.txt'
+bank_analysis = Path('Analysis', 'bank_analysis.txt')
 with open(bank_analysis, "w") as outfile: 
     
     # Write results to export text file

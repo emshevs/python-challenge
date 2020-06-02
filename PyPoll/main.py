@@ -1,9 +1,10 @@
 #Import OS and CSV
 import os
 import csv
+from pathlib import Path
 
 #Filepath
-file = '/Users/sheve/Documents/GitHub/python-challenge/PyPoll/Resources/election_data.csv'
+input_file = Path('Resources','election_data.csv')
 
 voter_id = []
 candidates = []
@@ -11,7 +12,7 @@ unique_candidates = []
 vote_counts = []
 
 
-with open(file, 'r') as csvfile:
+with open(input_file, 'r', newline = '') as csvfile:
     csvreader = csv.reader(csvfile, delimiter = ',')
     csv_header = next(csvreader)
 
@@ -59,7 +60,7 @@ print(f"Winner: {maximum}")
 print("----------------")
 
  #Export file name and open as text file
-election_analysis = '/Users/sheve/Documents/GitHub/python-challenge/PyPoll/Analysis/election_analysis.txt'
+election_analysis = Path('Analysis', 'election_analysis.txt')
 with open(election_analysis, "w") as outfile: 
     
     # Write results to export text file
